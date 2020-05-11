@@ -105,6 +105,34 @@ public class TapNetworkManager {
         }
     }
 
+    
+    /// Performs request operation and calls completion when request finishes.
+    ///
+    /// - Parameters:
+    ///   - operation: Network request operation.
+    ///   - completion: Completion closure that is called when request finishes.
+    public func performRequest<T:Codable>(_ operation: TapNetworkRequestOperation, completion: RequestCompletionClosure?,codableType:T.Type) {
+        
+        performRequest(operation) { (dataTask, data, error) in
+            if let nonNullError = error {
+                completion?(dataTask, nil, nonNullError)
+            }else if let jsonObject = data {
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: .fragmentsAllowed)
+                    let decodedResponse = try JSONDecoder().decode(codableType, from: jsonData)
+                    completion?(dataTask, decodedResponse, error)
+                    
+                } catch {
+
+                    completion?(dataTask, nil, error)
+                }
+            }else {
+                completion?(nil, nil, error)
+            }
+        }
+    }
+    
+    
     /// Cancels network request operation.
     ///
     /// - Parameter operation: Operation to cancel.
