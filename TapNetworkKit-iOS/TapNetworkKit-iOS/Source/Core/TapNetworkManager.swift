@@ -111,7 +111,7 @@ public class TapNetworkManager {
     /// - Parameters:
     ///   - operation: Network request operation.
     ///   - completion: Completion closure that is called when request finishes.
-    public func performRequest<T:Codable>(_ operation: TapNetworkRequestOperation, completion: RequestCompletionClosure?,codableType:T.Type) {
+    public func performRequest<T:Decodable>(_ operation: TapNetworkRequestOperation, completion: RequestCompletionClosure?,codableType:T.Type) {
         
         performRequest(operation) { (dataTask, data, error) in
             if let nonNullError = error {
