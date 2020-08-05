@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-TapNetworkKit-Example/Pods-TapNetworkKit-Example-frameworks.sh
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/TapAdditionsKit/TapAdditionsKit.framework
+${BUILT_PRODUCTS_DIR}/TapSwiftFixes/TapSwiftFixes.framework

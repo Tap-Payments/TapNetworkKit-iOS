@@ -1,7 +1,7 @@
 PODS:
-  - SDWebImage (5.7.4):
-    - SDWebImage/Core (= 5.7.4)
-  - SDWebImage/Core (5.7.4)
+  - SDWebImage (5.8.4):
+    - SDWebImage/Core (= 5.8.4)
+  - SDWebImage/Core (5.8.4)
   - TapAdditionsKit (1.3.6):
     - TapAdditionsKit/AVFoundation (= 1.3.6)
     - TapAdditionsKit/CoreGraphics (= 1.3.6)
@@ -231,10 +231,10 @@ SPEC REPOS:
     - TapSwiftFixes
 
 SPEC CHECKSUMS:
-  SDWebImage: 48b88379b798fd1e4298f95bb25d2cdabbf4deb3
+  SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   TapAdditionsKit: 136b2174e775b105f8fd17eac6a4da2951e0f05b
   TapSwiftFixes: db2aeb21942dd81ee051a31ed319dab0d03547a2
 
-PODFILE CHECKSUM: 2b918e6444f1753860768e7ac8f473dc09ee15bc
+PODFILE CHECKSUM: 4ec33228ccd5edf2012c2a44afdde73fcebab2b3
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3
