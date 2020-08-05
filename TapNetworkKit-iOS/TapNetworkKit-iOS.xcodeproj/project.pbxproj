@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1C357236823EB6D7329A5535 /* Pods_TapNetworkKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C80EC74200662638F69B803 /* Pods_TapNetworkKit_iOS.framework */; };
+		627E3CE624DAB42F00B2E096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627E3CE524DAB42F00B2E096 /* AppDelegate.swift */; };
+		627E3CE824DAB42F00B2E096 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627E3CE724DAB42F00B2E096 /* SceneDelegate.swift */; };
+		627E3CEA24DAB42F00B2E096 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627E3CE924DAB42F00B2E096 /* ViewController.swift */; };
+		627E3CED24DAB42F00B2E096 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 627E3CEB24DAB42F00B2E096 /* Main.storyboard */; };
+		627E3CEF24DAB43100B2E096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 627E3CEE24DAB43100B2E096 /* Assets.xcassets */; };
+		627E3CF224DAB43100B2E096 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 627E3CF024DAB43100B2E096 /* LaunchScreen.storyboard */; };
+		627E3CF824DAB80C00B2E096 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627E3CF724DAB80C00B2E096 /* ExampleViewController.swift */; };
 		E88D0E1A24694D96007CA160 /* TapNetworkKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = E88D0E1824694D96007CA160 /* TapNetworkKit_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E88D0E3424694DE3007CA160 /* TapNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88D0E2224694DE3007CA160 /* TapNetworkManager.swift */; };
 		E88D0E3524694DE3007CA160 /* TapNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88D0E2324694DE3007CA160 /* TapNetworkError.swift */; };
@@ -29,6 +36,15 @@
 
 /* Begin PBXFileReference section */
 		423B9D349A44D57C9E6DDAA6 /* Pods-TapNetworkKit-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapNetworkKit-iOS.debug.xcconfig"; path = "Target Support Files/Pods-TapNetworkKit-iOS/Pods-TapNetworkKit-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		627E3CE324DAB42F00B2E096 /* TapNetworkKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TapNetworkKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		627E3CE524DAB42F00B2E096 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		627E3CE724DAB42F00B2E096 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		627E3CE924DAB42F00B2E096 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		627E3CEC24DAB42F00B2E096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		627E3CEE24DAB43100B2E096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		627E3CF124DAB43100B2E096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		627E3CF324DAB43100B2E096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		627E3CF724DAB80C00B2E096 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		744A2601AF785B883B709855 /* Pods-TapNetworkKit-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapNetworkKit-iOS.release.xcconfig"; path = "Target Support Files/Pods-TapNetworkKit-iOS/Pods-TapNetworkKit-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		8C80EC74200662638F69B803 /* Pods_TapNetworkKit_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TapNetworkKit_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88D0E1524694D96007CA160 /* TapNetworkKit_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TapNetworkKit_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +69,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		627E3CE024DAB42F00B2E096 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E88D0E1224694D96007CA160 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -70,8 +93,22 @@
 				423B9D349A44D57C9E6DDAA6 /* Pods-TapNetworkKit-iOS.debug.xcconfig */,
 				744A2601AF785B883B709855 /* Pods-TapNetworkKit-iOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		627E3CE424DAB42F00B2E096 /* TapNetworkKit-Example */ = {
+			isa = PBXGroup;
+			children = (
+				627E3CE524DAB42F00B2E096 /* AppDelegate.swift */,
+				627E3CE724DAB42F00B2E096 /* SceneDelegate.swift */,
+				627E3CE924DAB42F00B2E096 /* ViewController.swift */,
+				627E3CF724DAB80C00B2E096 /* ExampleViewController.swift */,
+				627E3CEB24DAB42F00B2E096 /* Main.storyboard */,
+				627E3CEE24DAB43100B2E096 /* Assets.xcassets */,
+				627E3CF024DAB43100B2E096 /* LaunchScreen.storyboard */,
+				627E3CF324DAB43100B2E096 /* Info.plist */,
+			);
+			path = "TapNetworkKit-Example";
 			sourceTree = "<group>";
 		};
 		C47AE4107FE9768AE6F4D112 /* Frameworks */ = {
@@ -86,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				E88D0E1724694D96007CA160 /* TapNetworkKit-iOS */,
+				627E3CE424DAB42F00B2E096 /* TapNetworkKit-Example */,
 				E88D0E1624694D96007CA160 /* Products */,
 				3BEE6364A333298E2A967C87 /* Pods */,
 				C47AE4107FE9768AE6F4D112 /* Frameworks */,
@@ -96,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				E88D0E1524694D96007CA160 /* TapNetworkKit_iOS.framework */,
+				627E3CE324DAB42F00B2E096 /* TapNetworkKit-Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,6 +210,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		627E3CE224DAB42F00B2E096 /* TapNetworkKit-Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 627E3CF424DAB43100B2E096 /* Build configuration list for PBXNativeTarget "TapNetworkKit-Example" */;
+			buildPhases = (
+				627E3CDF24DAB42F00B2E096 /* Sources */,
+				627E3CE024DAB42F00B2E096 /* Frameworks */,
+				627E3CE124DAB42F00B2E096 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TapNetworkKit-Example";
+			productName = "TapNetworkKit-Example";
+			productReference = 627E3CE324DAB42F00B2E096 /* TapNetworkKit-Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 		E88D0E1424694D96007CA160 /* TapNetworkKit-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E88D0E1D24694D96007CA160 /* Build configuration list for PBXNativeTarget "TapNetworkKit-iOS" */;
@@ -196,9 +252,13 @@
 		E88D0E0C24694D96007CA160 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Tap Payments";
 				TargetAttributes = {
+					627E3CE224DAB42F00B2E096 = {
+						CreatedOnToolsVersion = 11.6;
+					};
 					E88D0E1424694D96007CA160 = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
@@ -218,11 +278,22 @@
 			projectRoot = "";
 			targets = (
 				E88D0E1424694D96007CA160 /* TapNetworkKit-iOS */,
+				627E3CE224DAB42F00B2E096 /* TapNetworkKit-Example */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		627E3CE124DAB42F00B2E096 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				627E3CF224DAB43100B2E096 /* LaunchScreen.storyboard in Resources */,
+				627E3CEF24DAB43100B2E096 /* Assets.xcassets in Resources */,
+				627E3CED24DAB42F00B2E096 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E88D0E1324694D96007CA160 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -258,6 +329,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		627E3CDF24DAB42F00B2E096 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				627E3CEA24DAB42F00B2E096 /* ViewController.swift in Sources */,
+				627E3CF824DAB80C00B2E096 /* ExampleViewController.swift in Sources */,
+				627E3CE624DAB42F00B2E096 /* AppDelegate.swift in Sources */,
+				627E3CE824DAB42F00B2E096 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E88D0E1124694D96007CA160 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -283,7 +365,62 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		627E3CEB24DAB42F00B2E096 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				627E3CEC24DAB42F00B2E096 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		627E3CF024DAB43100B2E096 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				627E3CF124DAB43100B2E096 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		627E3CF524DAB43100B2E096 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "TapNetworkKit-Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "company.kareem.TapNetworkKit-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		627E3CF624DAB43100B2E096 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "TapNetworkKit-Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "company.kareem.TapNetworkKit-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		E88D0E1B24694D96007CA160 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -461,6 +598,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		627E3CF424DAB43100B2E096 /* Build configuration list for PBXNativeTarget "TapNetworkKit-Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				627E3CF524DAB43100B2E096 /* Debug */,
+				627E3CF624DAB43100B2E096 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E88D0E0F24694D96007CA160 /* Build configuration list for PBXProject "TapNetworkKit-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
