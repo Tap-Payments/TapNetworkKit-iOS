@@ -61,17 +61,17 @@ public class TapNetworkManager {
             var dataTask: URLSessionDataTask?
             let dataTaskCompletion: (Data?, URLResponse?, Error?) -> Void = { [weak self] (data, response, anError) in
 
-                guard let strongSelf = self else { return }
+//                guard let strongSelf = self else { return }
 
-                if let operationIndex = strongSelf.currentRequestOperations.firstIndex(of: operation) {
+                if let operationIndex = self?.currentRequestOperations.firstIndex(of: operation) {
 
-                    strongSelf.currentRequestOperations.remove(at: operationIndex)
+                    self?.currentRequestOperations.remove(at: operationIndex)
                 }
 
-                if strongSelf.isRequestLoggingEnabled {
+                if self?.isRequestLoggingEnabled ?? false {
 
-                    strongSelf.log(response, data: data, serializationType: operation.responseType)
-                    strongSelf.log(anError)
+                    self?.log(response, data: data, serializationType: operation.responseType)
+                    self?.log(anError)
                 }
 
                 if let d = data {
@@ -100,7 +100,9 @@ public class TapNetworkManager {
             self.currentRequestOperations.append(operation)
 
         } catch {
-
+            if isRequestLoggingEnabled {
+                log(error)
+            }
             completion?(nil, nil, error)
         }
     }
