@@ -87,7 +87,9 @@ enum TypeEnum: String, Codable {
 }
 
 enum Section: String, Codable {
+    case arts = "arts"
     case briefing = "briefing"
+    case style = "style"
     case us = "us"
     case world = "world"
 }

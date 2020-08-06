@@ -122,14 +122,18 @@ public class TapNetworkManager {
                 do {
                     let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: .fragmentsAllowed)
                     let decodedResponse = try JSONDecoder().decode(codableType, from: jsonData)
-                    completion?(dataTask, decodedResponse, error)
-                    
+                    DispatchQueue.main.async {
+                        completion?(dataTask, decodedResponse, error)
+                    }
                 } catch {
-
-                    completion?(dataTask, nil, error)
+                    DispatchQueue.main.async {
+                        completion?(dataTask, nil, error)
+                    }
                 }
             }else {
-                completion?(nil, nil, error)
+                DispatchQueue.main.async {
+                    completion?(nil, nil, error)
+                }
             }
         }
     }

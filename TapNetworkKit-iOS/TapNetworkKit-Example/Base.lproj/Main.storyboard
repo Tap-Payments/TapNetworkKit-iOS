@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rvM-2O-M6G">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -71,9 +72,39 @@
                     <view key="view" contentMode="scaleToFill" id="ECE-c4-yzg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status: Success" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShR-9e-UZC">
+                                <rect key="frame" x="20" y="74" width="374" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="rQ8-CY-Bfw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="0.1019607843" green="0.23921568630000001" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMy-6v-knJ">
+                                <rect key="frame" x="8" y="124" width="398" height="730"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ShR-9e-UZC" firstAttribute="top" secondItem="rtG-l3-vY8" secondAttribute="top" constant="30" id="Geq-Bp-dXF"/>
+                            <constraint firstItem="lMy-6v-knJ" firstAttribute="leading" secondItem="rtG-l3-vY8" secondAttribute="leading" constant="8" id="T9q-Ig-fbB"/>
+                            <constraint firstItem="rtG-l3-vY8" firstAttribute="trailing" secondItem="ShR-9e-UZC" secondAttribute="trailing" constant="20" id="Zio-Hv-Oy2"/>
+                            <constraint firstItem="rtG-l3-vY8" firstAttribute="bottom" secondItem="lMy-6v-knJ" secondAttribute="bottom" constant="8" id="hQ0-9c-PN2"/>
+                            <constraint firstItem="lMy-6v-knJ" firstAttribute="top" secondItem="ShR-9e-UZC" secondAttribute="bottom" constant="20" id="iFs-2L-3PP"/>
+                            <constraint firstItem="rtG-l3-vY8" firstAttribute="trailing" secondItem="lMy-6v-knJ" secondAttribute="trailing" constant="8" id="ylX-TM-Ybt"/>
+                            <constraint firstItem="ShR-9e-UZC" firstAttribute="leading" secondItem="rtG-l3-vY8" secondAttribute="leading" constant="20" id="zDA-dC-UeX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rtG-l3-vY8"/>
                     </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="lMy-6v-knJ" id="bWf-kc-l9o"/>
+                        <outlet property="statusLabel" destination="ShR-9e-UZC" id="a5N-hc-Sb0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ikd-kO-x85" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
