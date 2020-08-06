@@ -16,8 +16,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource.append(["title":"Successful get request without headers","subtitle":"Displays successfull request test","navigationID":"ExampleViewController","push":"1", "requestType": TestCaseType.successGetRequestWithoutHeaders])
-        dataSource.append(["title":"Failed get request without headers with error model","subtitle":"Displays successfull request test","navigationID":"ExampleViewController","push":"1", "requestType": TestCaseType.failedGetRequestWithoutHeadersWithErrorModel])
+        dataSource.append(["title":"Successful GET request without headers","subtitle":"Displays successfull request test","navigationID":"ExampleViewController","push":"1", "requestType": TestCaseType.successGetRequestWithoutHeaders])
+        dataSource.append(["title":"Failed GET request without headers with error model","subtitle":"Displays failed request test","navigationID":"ExampleViewController","push":"1", "requestType": TestCaseType.failedGetRequestWithoutHeadersWithErrorModel])
+        dataSource.append(["title":"Failed GET request without headers without error model","subtitle":"Displays failed request test","navigationID":"ExampleViewController","push":"1", "requestType": TestCaseType.failedGetRequestWithoutHeadersWithoutErrorModel])
+        dataSource.append(["title":"Successful POST request without headers","subtitle":"Displays successfull request test","navigationID":"ExampleViewController","push":"1", "requestType": TestCaseType.successPostRequestWithHeaders])
 
         tableView.dataSource = self
         tableView.delegate = self

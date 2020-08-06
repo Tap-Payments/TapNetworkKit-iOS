@@ -12,10 +12,10 @@ import Foundation
 
 // MARK: - StoriesResponse
 struct StoriesResponse: Codable {
-    let status, copyright, section: String
-    let lastUpdated: String
-    let numResults: Int
-    let results: [Result]
+    let status, copyright, section: String?
+    let lastUpdated: String?
+    let numResults: Int?
+    let results: [Result]?
 
     enum CodingKeys: String, CodingKey {
         case status, copyright, section
@@ -27,16 +27,16 @@ struct StoriesResponse: Codable {
 
 // MARK: - Result
 struct Result: Codable {
-    let section: Section
-    let subsection, title, abstract: String
-    let url: String
-    let uri, byline: String
-    let itemType: ItemType
-    let updatedDate, createdDate, publishedDate: String
-    let materialTypeFacet, kicker: String
-    let desFacet, orgFacet, perFacet, geoFacet: [String]
-    let multimedia: [Multimedia]
-    let shortURL: String
+    let section, subsection, title, abstract: String?
+    let url: String?
+    let uri, byline: String?
+    let itemType: ItemType?
+    let updatedDate, createdDate, publishedDate: String?
+    let materialTypeFacet: String?
+    let kicker: Kicker?
+    let desFacet, orgFacet, perFacet, geoFacet: [String]?
+    let multimedia: [Multimedia]?
+    let shortURL: String?
 
     enum CodingKeys: String, CodingKey {
         case section, subsection, title, abstract, url, uri, byline
@@ -60,14 +60,19 @@ enum ItemType: String, Codable {
     case interactive = "Interactive"
 }
 
+enum Kicker: String, Codable {
+    case empty = ""
+    case theSaturdayProfile = "The Saturday Profile"
+}
+
 // MARK: - Multimedia
 struct Multimedia: Codable {
-    let url: String
-    let format: Format
-    let height, width: Int
-    let type: TypeEnum
-    let subtype: Subtype
-    let caption, copyright: String
+    let url: String?
+    let format: Format?
+    let height, width: Int?
+    let type: TypeEnum?
+    let subtype: Subtype?
+    let caption, copyright: String?
 }
 
 enum Format: String, Codable {
@@ -84,12 +89,4 @@ enum Subtype: String, Codable {
 
 enum TypeEnum: String, Codable {
     case image = "image"
-}
-
-enum Section: String, Codable {
-    case arts = "arts"
-    case briefing = "briefing"
-    case style = "style"
-    case us = "us"
-    case world = "world"
 }

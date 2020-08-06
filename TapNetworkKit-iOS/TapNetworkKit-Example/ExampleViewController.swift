@@ -33,16 +33,19 @@ class ExampleViewController: UIViewController {
         }
     }
     
+    // MAEK: Requests
     func successGetRequestWithoutHeaders() {
         let manager = TapNetworkManager(baseURL: URL(string: "https://api.nytimes.com/svc/")!)
         manager.isRequestLoggingEnabled = true
         let requestOperation = TapNetworkRequestOperation(path: "topstories/v2/world.json?api-key=\(apiKey)", method: .GET, headers: nil, urlModel: .none, bodyModel: .none, responseType: .json)
             
-        manager.performRequest(requestOperation, completion: { (session, list, error) in
-            print("list is: \(String(describing: list))")
+        manager.performRequest(requestOperation, completion: { (session, result, error) in
+            print("result is: \(String(describing: result))")
             print("error: \(String(describing: error))")
             self.statusLabel.text = (error != nil) ? "Error: \(String(describing: error))" : "Success"
-
+            guard let stories = result as? StoriesResponse, let storiesResults = stories.results else { return }
+            let storiesTitles = storiesResults.compactMap { "Title: \($0.title ?? "No title!")" }
+            self.resultLabel.text = storiesTitles.joined(separator: "\n")
         }, codableType: StoriesResponse.self)
     }
     
@@ -81,11 +84,13 @@ class ExampleViewController: UIViewController {
 
         let requestOperation = TapNetworkRequestOperation(path: "votes", method: .POST, headers: ["x-api-key":"bc7ffba5-a22b-4bee-b956-5c6d8192be7a"], urlModel: .none, bodyModel: body, responseType: .json)
             
-        manager.performRequest(requestOperation, completion: { (session, list, error) in
-            print("list is: \(String(describing: list))")
+        manager.performRequest(requestOperation, completion: { (session, result, error) in
+            print("result is: \(String(describing: result))")
             print("error: \(String(describing: error?.localizedDescription))")
             self.statusLabel.text = (error != nil) ? "Error: \(String(describing: error))" : "Success"
-
+            guard let vote = result as? VoteSuccess else { return }
+            self.resultLabel.text = "id: \(vote.id) \nmessage: \(vote.message)"
+            
         }, codableType: VoteSuccess.self)
     }
     
