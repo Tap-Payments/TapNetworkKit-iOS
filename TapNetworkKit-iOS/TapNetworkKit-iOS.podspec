@@ -16,18 +16,17 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "TapNetworkKit-iOS"
-  spec.version      = "0.0.1"
-  spec.summary      = "A short description of TapNetworkKit-iOS."
+  spec.version      = "v1.0.0"
+  spec.summary      = "Tap Network KIT is an on the shelf kit for dynamic solution for network and api management an iOS app."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = <<-DESC
-                   DESC
+  spec.description  = "Tap Network KIT is an on the shelf kit for dynamic solution for network and api management an iOS app. Provides as well single line of code integration"
 
-  spec.homepage     = "http://EXAMPLE/TapNetworkKit-iOS"
+  spec.homepage     = "https://github.com/Tap-Payments/TapNetworkKit-iOS"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -38,7 +37,7 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
+  spec.license      = { :type => "MIT", :file => "license" }
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -52,7 +51,7 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "O Rabie" => "o.rabie@tap.company" }
+  spec.author             = "Tap Payments"
   # Or just: spec.author    = "O Rabie"
   # spec.authors            = { "O Rabie" => "o.rabie@tap.company" }
   # spec.social_media_url   = "https://twitter.com/O Rabie"
@@ -63,8 +62,8 @@ Pod::Spec.new do |spec|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  # spec.platform     = :ios
-  # spec.platform     = :ios, "5.0"
+  spec.platform     = :ios, "12.0"
+  spec.swift_versions = '4.0'
 
   #  When using multiple platforms
   # spec.ios.deployment_target = "5.0"
@@ -79,7 +78,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "http://EXAMPLE/TapNetworkKit-iOS.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/Tap-Payments/TapNetworkKit-iOS.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
