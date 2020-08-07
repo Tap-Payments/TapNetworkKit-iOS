@@ -89,7 +89,8 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Classes", "Classes/**/*.{h,m}"
+    
+  spec.source_files  = "TapNetworkKit-iOS/TapNetworkKit-iOS/Source/Core/**/*.{h,m,swift}","TapNetworkKit-iOS/TapNetworkKit-iOS/Source/ImageLoading/**/*.{h,m,swift}","TapNetworkKit-iOS/TapNetworkKit-iOS/Source/Reachability/**/*.{h,m,swift}"
   spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
