@@ -12,7 +12,8 @@ import Foundation
     @objc public class func log(event: String, value: [String: Any]) {
         let manager = TapNetworkManager(baseURL: URL(string: "https://api.nytimes.com/svc/")!)
         manager.isRequestLoggingEnabled = true
-        let requestOperation = TapNetworkRequestOperation(path: "", method: .GET, headers: nil, urlModel: .none, bodyModel: .none, responseType: .json)
+        let body = TapBodyModel(body: value)
+        let requestOperation = TapNetworkRequestOperation(path: "", method: .GET, headers: nil, urlModel: .none, bodyModel: body, responseType: .json)
         
         manager.performRequest(requestOperation, completion: { (session, result, error) in
             print("result is: \(String(describing: result))")
