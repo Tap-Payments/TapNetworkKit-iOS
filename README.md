@@ -2,8 +2,8 @@
 
 A SDK that provides an interface to manage network and api calls inside tap apis.
 
-[![Platform](https://img.shields.io/cocoapods/p/TapUIKit-iOS.svg?style=flat)](https://github.com/Tap-Payments/TapUIKit-iOS)
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/TapUIKit-iOS.svg?style=flat)](https://img.shields.io/Tap-Payments/v/TapUIKit-iOS)
+[![Platform](https://img.shields.io/cocoapods/p/TapNetworkKit-iOS.svg?style=flat)](https://github.com/Tap-Payments/TapNetworkKit-iOS)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/TapNetworkKit-iOS.svg?style=flat)](https://img.shields.io/Tap-Payments/v/TapNetworkKit-iOS)
 
 
 ## Requirements
