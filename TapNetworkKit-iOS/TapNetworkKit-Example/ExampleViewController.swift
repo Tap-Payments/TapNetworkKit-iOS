@@ -18,7 +18,8 @@ class ExampleViewController: UIViewController {
     let apiKey = "BWGjm2yyorId0byBKTPtGp0AmJScFYM8"
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        Logger.log(event: "test", value: ["check": "value"])
+
         switch requestTestCase {
         case .successGetRequestWithoutHeaders:
             successGetRequestWithoutHeaders()
@@ -38,7 +39,7 @@ class ExampleViewController: UIViewController {
         let manager = TapNetworkManager(baseURL: URL(string: "https://api.nytimes.com/svc/")!)
         manager.isRequestLoggingEnabled = true
         let requestOperation = TapNetworkRequestOperation(path: "topstories/v2/world.json?api-key=\(apiKey)", method: .GET, headers: nil, urlModel: .none, bodyModel: .none, responseType: .json)
-            
+        
         manager.performRequest(requestOperation, completion: { (session, result, error) in
             print("result is: \(String(describing: result))")
             print("error: \(String(describing: error))")
@@ -92,6 +93,7 @@ class ExampleViewController: UIViewController {
             self.resultLabel.text = "id: \(vote.id) \nmessage: \(vote.message)"
             
         }, codableType: VoteSuccess.self)
+        
     }
     
     

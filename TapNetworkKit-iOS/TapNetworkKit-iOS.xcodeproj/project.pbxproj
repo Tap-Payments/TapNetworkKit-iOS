@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		43DEA8AE98EF802DEB2748D0 /* Pods_TapNetworkKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687C1A17B6711319F6176B14 /* Pods_TapNetworkKit_Example.framework */; };
+		620965CA24E3EF9A00BD9985 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620965C924E3EF9A00BD9985 /* Logger.swift */; };
 		627E3CE624DAB42F00B2E096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627E3CE524DAB42F00B2E096 /* AppDelegate.swift */; };
 		627E3CE824DAB42F00B2E096 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627E3CE724DAB42F00B2E096 /* SceneDelegate.swift */; };
 		627E3CEA24DAB42F00B2E096 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627E3CE924DAB42F00B2E096 /* ViewController.swift */; };
@@ -80,6 +81,7 @@
 /* Begin PBXFileReference section */
 		34DB705691BC3DD41F2024A8 /* Pods_TapNetworkKit_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TapNetworkKit_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		423B9D349A44D57C9E6DDAA6 /* Pods-TapNetworkKit-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapNetworkKit-iOS.debug.xcconfig"; path = "Target Support Files/Pods-TapNetworkKit-iOS/Pods-TapNetworkKit-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		620965C924E3EF9A00BD9985 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		627E3CE324DAB42F00B2E096 /* TapNetworkKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TapNetworkKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		627E3CE524DAB42F00B2E096 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		627E3CE724DAB42F00B2E096 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,14 @@
 				985232C696BC691AAED0AE09 /* Pods-TapNetworkKit-Example.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		620965C824E3EF8500BD9985 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				620965C924E3EF9A00BD9985 /* Logger.swift */,
+			);
+			path = Logger;
 			sourceTree = "<group>";
 		};
 		627E3CE424DAB42F00B2E096 /* TapNetworkKit-Example */ = {
@@ -221,6 +231,7 @@
 		E88D0E2024694DE3007CA160 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				620965C824E3EF8500BD9985 /* Logger */,
 				E88D0E2124694DE3007CA160 /* Core */,
 				E88D0E2F24694DE3007CA160 /* ImageLoading */,
 				E88D0E3124694DE3007CA160 /* Reachability */,
@@ -477,6 +488,7 @@
 				E88D0E3924694DE3007CA160 /* TapSerializer.swift in Sources */,
 				E88D0E3F24694DE3007CA160 /* TapEncoder.swift in Sources */,
 				E88D0E3624694DE3007CA160 /* TapJSONSerializer.swift in Sources */,
+				620965CA24E3EF9A00BD9985 /* Logger.swift in Sources */,
 				E88D0E4324694DE3007CA160 /* TapReachabilityManager.swift in Sources */,
 				E88D0E3B24694DE3007CA160 /* TapURLSerializer.swift in Sources */,
 				E88D0E3824694DE3007CA160 /* TapURLModel.swift in Sources */,
