@@ -18,7 +18,6 @@ class ExampleViewController: UIViewController {
     let apiKey = "BWGjm2yyorId0byBKTPtGp0AmJScFYM8"
     override func viewDidLoad() {
         super.viewDidLoad()
-        Logger.log(event: "test", value: ["check": "value"])
 
         switch requestTestCase {
         case .successGetRequestWithoutHeaders:

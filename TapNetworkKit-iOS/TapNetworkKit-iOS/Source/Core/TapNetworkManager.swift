@@ -52,6 +52,7 @@ public class TapNetworkManager {
         do {
 
             request = try self.createURLRequest(from: operation)
+            TapLogger.log(with: request, bodyParmeters: operation.bodyModel?.body)
 
             if self.isRequestLoggingEnabled {
 
@@ -117,20 +118,24 @@ public class TapNetworkManager {
         
         performRequest(operation) { (dataTask, data, error) in
             if let nonNullError = error {
+                TapLogger.log(urlRequest: dataTask?.originalRequest, error: nonNullError)
                 completion?(dataTask, nil, nonNullError)
             }else if let jsonObject = data {
                 do {
                     let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: .fragmentsAllowed)
                     let decodedResponse = try JSONDecoder().decode(codableType, from: jsonData)
+                    TapLogger.log(urlRequest: dataTask?.originalRequest, apiResponse: jsonObject)
                     DispatchQueue.main.async {
                         completion?(dataTask, decodedResponse, error)
                     }
                 } catch {
+                    TapLogger.log(urlRequest: dataTask?.originalRequest, error: error)
                     DispatchQueue.main.async {
                         completion?(dataTask, nil, error)
                     }
                 }
             }else {
+                TapLogger.log(urlRequest: dataTask?.originalRequest, error: error)
                 DispatchQueue.main.async {
                     completion?(nil, nil, error)
                 }
