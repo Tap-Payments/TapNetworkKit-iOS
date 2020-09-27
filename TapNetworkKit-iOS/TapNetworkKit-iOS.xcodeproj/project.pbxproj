@@ -231,10 +231,7 @@
 		E88D0E2024694DE3007CA160 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				620965C824E3EF8500BD9985 /* Logger */,
 				E88D0E2124694DE3007CA160 /* Core */,
-				E88D0E2F24694DE3007CA160 /* ImageLoading */,
-				E88D0E3124694DE3007CA160 /* Reachability */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -242,6 +239,9 @@
 		E88D0E2124694DE3007CA160 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				620965C824E3EF8500BD9985 /* Logger */,
+				E88D0E2F24694DE3007CA160 /* ImageLoading */,
+				E88D0E3124694DE3007CA160 /* Reachability */,
 				E88D0E2224694DE3007CA160 /* TapNetworkManager.swift */,
 				E88D0E2324694DE3007CA160 /* TapNetworkError.swift */,
 				E88D0E2424694DE3007CA160 /* TapJSONSerializer.swift */,
