@@ -198,12 +198,12 @@ fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/TapAdditionsKit/TapAdditionsKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TapAdditionsKitV2/TapAdditionsKitV2.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TapSwiftFixes/TapSwiftFixes.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/TapAdditionsKit/TapAdditionsKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TapAdditionsKitV2/TapAdditionsKitV2.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TapSwiftFixes/TapSwiftFixes.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

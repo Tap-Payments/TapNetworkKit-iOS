@@ -7,7 +7,7 @@ target 'TapNetworkKit-iOS' do
 
   # Pods for TapNetworkKit-iOS
 pod 'SDWebImage'
-pod 'TapAdditionsKit'
+pod 'TapAdditionsKitV2'
 end
 
 target 'TapNetworkKit-Example' do

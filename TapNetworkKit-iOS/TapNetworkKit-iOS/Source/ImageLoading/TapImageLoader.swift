@@ -5,12 +5,12 @@
 //  Copyright © 2019 Tap Payments. All rights reserved.
 //
 
-import struct	CoreGraphics.CGBase.CGFloat
+import CoreGraphics
 import class	SDWebImage.SDImageCache.SDImageCache
 import class	SDWebImage.SDWebImageDownloader.SDWebImageDownloader
 import struct	SDWebImage.SDWebImageDownloader.SDWebImageDownloaderOptions
 import class	SDWebImage.SDWebImageManager.SDWebImageManager
-import class	TapAdditionsKit.URLSession
+import class	TapAdditionsKitV2.URLSession
 import class	UIKit.UIImage.UIImage
 
 /// Image loader.
