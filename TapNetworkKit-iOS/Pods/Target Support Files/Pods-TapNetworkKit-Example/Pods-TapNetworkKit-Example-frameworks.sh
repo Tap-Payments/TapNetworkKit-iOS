@@ -197,14 +197,14 @@ if [ -r "${ARTIFACT_LIST_FILE}" ]; then
 fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TapAdditionsKitV2/TapAdditionsKitV2.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/TapSwiftFixes/TapSwiftFixes.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TapSwiftFixesV2/TapSwiftFixesV2.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TapAdditionsKitV2/TapAdditionsKitV2.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/TapSwiftFixes/TapSwiftFixes.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TapSwiftFixesV2/TapSwiftFixesV2.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

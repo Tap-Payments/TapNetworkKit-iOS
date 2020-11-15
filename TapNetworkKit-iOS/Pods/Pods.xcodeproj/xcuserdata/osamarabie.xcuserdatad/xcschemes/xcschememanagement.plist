@@ -4,21 +4,21 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-TapNetworkKit-Example.xcscheme</key>
+		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>Pods-TapNetworkKit-iOS.xcscheme</key>
+		<key>Pods-TapNetworkKit-Example.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>SDWebImage.xcscheme</key>
+		<key>Pods-TapNetworkKit-iOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -39,7 +39,7 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>TapSwiftFixes.xcscheme</key>
+		<key>TapSwiftFixesV2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

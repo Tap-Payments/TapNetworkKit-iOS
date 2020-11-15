@@ -1,32 +1,36 @@
 PODS:
-  - SDWebImage (5.9.1):
-    - SDWebImage/Core (= 5.9.1)
-  - SDWebImage/Core (5.9.1)
-  - SwiftLint (0.40.3)
-  - TapAdditionsKitV2 (0.0.3):
+  - Kingfisher (5.15.7):
+    - Kingfisher/Core (= 5.15.7)
+  - Kingfisher/Core (5.15.7)
+  - SwiftLint (0.41.0)
+  - TapAdditionsKitV2 (0.0.6):
     - SwiftLint
-    - TapSwiftFixes/Exceptions
-    - TapSwiftFixes/Threading
-  - TapSwiftFixes/Exceptions (1.0.9)
-  - TapSwiftFixes/Threading (1.0.9)
+    - TapSwiftFixesV2
+  - TapSwiftFixesV2 (1.0.0):
+    - TapSwiftFixesV2/CoreGraphics (= 1.0.0)
+    - TapSwiftFixesV2/Exceptions (= 1.0.0)
+    - TapSwiftFixesV2/Threading (= 1.0.0)
+  - TapSwiftFixesV2/CoreGraphics (1.0.0)
+  - TapSwiftFixesV2/Exceptions (1.0.0)
+  - TapSwiftFixesV2/Threading (1.0.0)
 
 DEPENDENCIES:
-  - SDWebImage
+  - Kingfisher
   - TapAdditionsKitV2
 
 SPEC REPOS:
   trunk:
-    - SDWebImage
+    - Kingfisher
     - SwiftLint
     - TapAdditionsKitV2
-    - TapSwiftFixes
+    - TapSwiftFixesV2
 
 SPEC CHECKSUMS:
-  SDWebImage: a990c053fff71e388a10f3357edb0be17929c9c5
-  SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
-  TapAdditionsKitV2: 5752ee6837d690d4f38449d83155ab631fc4fc13
-  TapSwiftFixes: db2aeb21942dd81ee051a31ed319dab0d03547a2
+  Kingfisher: 6e1a13523fcb1c86924ce53affe4ac957e544d59
+  SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
+  TapAdditionsKitV2: 95c95584ecc4b3ab8fd777eade780b5c82aee996
+  TapSwiftFixesV2: a8623a7273c6790b9754ec7e272e96fce7d3a800
 
-PODFILE CHECKSUM: 11e85c1de504ec7aa8ce8dddcf80e72c9e0f1b92
+PODFILE CHECKSUM: 0d2804c15c1641a1008bebb98ecf029ec2247988
 
 COCOAPODS: 1.9.3

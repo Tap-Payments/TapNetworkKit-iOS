@@ -6,12 +6,12 @@ target 'TapNetworkKit-iOS' do
   use_frameworks!
 
   # Pods for TapNetworkKit-iOS
-pod 'SDWebImage'
+pod 'Kingfisher'
 pod 'TapAdditionsKitV2'
 end
 
 target 'TapNetworkKit-Example' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'SDWebImage'
+  pod 'Kingfisher'
 end
