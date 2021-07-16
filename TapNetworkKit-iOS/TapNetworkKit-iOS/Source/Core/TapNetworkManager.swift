@@ -10,6 +10,10 @@ import Foundation
 public class TapNetworkManager {
     
     // MARK: - Public -
+    
+    /// The logged in requests/responses since the init of the network manager till the moment
+    public var loggedInApiCalls:[String] = []
+    
     /// Request completion closure.
     public typealias RequestCompletionClosure = (URLSessionDataTask?, Any?, Error?) -> Void
     
@@ -29,6 +33,8 @@ public class TapNetworkManager {
         
         self.baseURL = baseURL
         self.session = URLSession(configuration: configuration)
+        // Clear the previous api calls, this should be empty by default but just in case :)
+        loggedInApiCalls = []
     }
     
     /// Performs request operation and calls completion when request finishes.
@@ -45,7 +51,7 @@ public class TapNetworkManager {
             //TapLogger.log(with: request, bodyParmeters: operation.bodyModel?.body)
             if self.isRequestLoggingEnabled {
                 
-                self.log(request)
+                loggedInApiCalls.append(self.log(request))
             }
             
             var dataTask: URLSessionDataTask?
@@ -59,8 +65,8 @@ public class TapNetworkManager {
                 
                 if self?.isRequestLoggingEnabled ?? false {
                     
-                    self?.log(response, data: data, serializationType: operation.responseType)
-                    self?.log(anError)
+                    self?.loggedInApiCalls.append(self?.log(response, data: data, serializationType: operation.responseType) ?? "\n")
+                    self?.loggedInApiCalls.append(self?.log(anError) ?? "\n")
                 }
                 
                 if let d = data {
@@ -90,6 +96,7 @@ public class TapNetworkManager {
                 loggString = "\(loggString)\nBody :\n-----\n{\n}\n---------------\n"
             }
             print(loggString)
+            loggedInApiCalls.append(loggString)
             
             let task = self.session.dataTask(with: request, completionHandler: dataTaskCompletion)
             dataTask = task
@@ -100,7 +107,7 @@ public class TapNetworkManager {
             
         } catch {
             if isRequestLoggingEnabled {
-                log(error)
+                loggedInApiCalls.append(log(error))
             }
             completion?(nil, nil, error)
         }
@@ -251,63 +258,76 @@ public class TapNetworkManager {
         }
     }
     
-    private func log(_ request: URLRequest, serializationType: TapSerializationType? = nil) {
+    private func log(_ request: URLRequest, serializationType: TapSerializationType? = nil) -> String {
         
-        print("Request:\n---------------------")
-        print("\(request.httpMethod ?? "nil") \(request.url?.absoluteString ?? "nil")")
-        
-        self.log(request.allHTTPHeaderFields)
-        self.log(request.httpBody, serializationType: serializationType)
+        var toBeLogged:String = "Request:\n---------------------\n"
+        toBeLogged = "\(toBeLogged)\(request.httpMethod ?? "nil") \(request.url?.absoluteString ?? "nil")\n"
+        toBeLogged = "\(toBeLogged)\(request.httpMethod ?? "nil") \(request.url?.absoluteString ?? "nil")\n"
+        toBeLogged = "\(toBeLogged)\(self.log(request.allHTTPHeaderFields))"
+        toBeLogged = "\(toBeLogged)\(self.log(request.httpBody, serializationType: serializationType))"
         
         print("---------------------------")
+        toBeLogged = "\(toBeLogged)------------------------\n"
+        return toBeLogged
     }
     
-    private func log(_ response: URLResponse?, data: Data?, serializationType: TapSerializationType? = nil) {
+    private func log(_ response: URLResponse?, data: Data?, serializationType: TapSerializationType? = nil) -> String {
         
-        guard let nonnullResponse = response else { return }
-        
+        guard let nonnullResponse = response else { return "" }
+        var toBeLoggedString = ""
         print("Response:\n---------------------")
+        toBeLoggedString = "Response:\n---------------------\n"
+        
         
         if let url = nonnullResponse.url {
             
             print("URL: \(url.absoluteString)")
+            toBeLoggedString = "\(toBeLoggedString)URL: \(url.absoluteString)\n"
         }
         
         guard let httpResponse = nonnullResponse as? HTTPURLResponse else {
             
             print("------------------------")
-            return
+            toBeLoggedString = "\(toBeLoggedString)------------------------\n"
+            return toBeLoggedString
         }
         
         print("HTTP status code: \(httpResponse.statusCode)")
+        toBeLoggedString = "\(toBeLoggedString)HTTP status code: \(httpResponse.statusCode)\n"
         
-        self.log(httpResponse.allHeaderFields)
-        self.log(data, serializationType: serializationType)
+        
+        toBeLoggedString = "\(toBeLoggedString)\(self.log(httpResponse.allHeaderFields))"
+        toBeLoggedString = "\(toBeLoggedString)\(self.log(data, serializationType: serializationType))"
+        
         
         print("------------------------")
+        toBeLoggedString = "\(toBeLoggedString)------------------------\n"
+        return toBeLoggedString
     }
     
-    private func log(_ error: Error?) {
+    private func log(_ error: Error?) -> String {
         
-        guard let nonnullError = error else { return }
+        guard let nonnullError = error else { return "" }
         print("Error: \(nonnullError)")
+        return "Error: \(nonnullError)\n"
     }
     
-    private func log(_ headerFields: [AnyHashable: Any]?) {
+    private func log(_ headerFields: [AnyHashable: Any]?) -> String {
         
-        guard let nonnullHeaderFields = headerFields, nonnullHeaderFields.count > 0 else { return }
+        guard let nonnullHeaderFields = headerFields, nonnullHeaderFields.count > 0 else { return "\n" }
         
         let headersString = (nonnullHeaderFields.map { "\($0.key): \($0.value)" }).joined(separator: "\n")
         print("Headers:\n\(headersString)")
+        return "\(headersString)\n"
     }
     
-    private func log(_ data: Data?, serializationType: TapSerializationType?) {
+    private func log(_ data: Data?, serializationType: TapSerializationType?) -> String {
         
-        guard let body = data else { return }
+        guard let body = data else { return "" }
         
         let type = serializationType ?? .json
         
-        guard let object = try? TapSerializer.deserialize(body, with: type) else { return }
+        guard let object = try? TapSerializer.deserialize(body, with: type) else { return "" }
         
         var jsonWritingOptions: JSONSerialization.WritingOptions
         if #available(iOS 11.0, *) {
@@ -323,6 +343,9 @@ public class TapNetworkManager {
            let jsonString = String(data: jsonData, encoding: .utf8) {
             
             print("Body:\n\(jsonString)")
+            return "Body:\n\(jsonString)\n"
         }
+        
+        return ""
     }
 }
