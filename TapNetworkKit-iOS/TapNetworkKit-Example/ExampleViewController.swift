@@ -35,7 +35,7 @@ class ExampleViewController: UIViewController {
     
     // MAEK: Requests
     func successGetRequestWithoutHeaders() {
-        let manager = TapNetworkManager(baseURL: URL(string: "https://api.nytimes.com/svc/")!)
+        let manager = TapNetworkManager( URL(string: "https://api.nytimes.com/svc/")!)
         manager.isRequestLoggingEnabled = true
         let requestOperation = TapNetworkRequestOperation(path: "topstories/v2/world.json?api-key=\(apiKey)", method: .GET, headers: nil, urlModel: .none, bodyModel: .none, responseType: .json)
         
@@ -50,7 +50,7 @@ class ExampleViewController: UIViewController {
     }
     
     func failedGetRequestWithoutHeadersWithErrorModel() {
-        let manager = TapNetworkManager(baseURL: URL(string: "https://api.nytimes.com/svc/")!)
+        let manager = TapNetworkManager( URL(string: "https://api.nytimes.com/svc/")!)
         manager.isRequestLoggingEnabled = true
         let requestOperation = TapNetworkRequestOperation(path: "topstories/v2/world.json?api-key=\(apiKey)ss", method: .GET, headers: nil, urlModel: .none, bodyModel: .none, responseType: .json)
             
@@ -63,7 +63,7 @@ class ExampleViewController: UIViewController {
     }
     
     func failedGetRequestWithoutHeadersWithoutErrorModel() {
-        let manager = TapNetworkManager(baseURL: URL(string: "https://api.nytimes.comssssw/svc/")!)
+        let manager = TapNetworkManager( URL(string: "https://api.nytimes.comssssw/svc/")!)
         manager.isRequestLoggingEnabled = true
         let requestOperation = TapNetworkRequestOperation(path: "topstories/v2/world.json?api-key=\(apiKey)", method: .GET, headers: nil, urlModel: .none, bodyModel: .none, responseType: .json)
             
@@ -76,7 +76,7 @@ class ExampleViewController: UIViewController {
     }
     
     func successPostRequestWithHeaders() {
-        let manager = TapNetworkManager(baseURL: URL(string: "https://api.thecatapi.com/v1/")!)
+        let manager = TapNetworkManager( URL(string: "https://api.thecatapi.com/v1/")!)
         manager.isRequestLoggingEnabled = true
         let body = TapBodyModel(body: ["image_id": "asf2",
                                        "sub_id": "my-user-1234",

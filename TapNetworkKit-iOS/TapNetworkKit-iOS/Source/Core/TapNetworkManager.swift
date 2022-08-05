@@ -9,10 +9,10 @@ import Foundation
 /// Network Manager class.
 public class TapNetworkManager {
     
-    // MARK: - Public -
+    // MARK: - -
     
     /// The logged in requests/responses since the init of the network manager till the moment
-    public var loggedInApiCalls:[TapLogStackTraceEntryModel] = []
+    var loggedInApiCalls:[TapLogStackTraceEntryModel] = []
     
     /// Request completion closure.
     public typealias RequestCompletionClosure = (URLSessionDataTask?, Any?, Error?) -> Void
@@ -22,22 +22,19 @@ public class TapNetworkManager {
     
     // MARK: Properties
     /// Defines if request logging enabled.
-    public var isRequestLoggingEnabled = false
+    var isRequestLoggingEnabled = false
     
     /// Defines if you want to enable printing to the console the api calls as it go
-    public var consolePrintLoggingEnabled = false
-    
-    /// Base URL.
-    public private(set) var baseURL: URL
+    var consolePrintLoggingEnabled = false
     
     /// Current active request operations
-    public private(set) var currentRequestOperations: [TapNetworkRequestOperation] = []
+    private(set) var currentRequestOperations: [TapNetworkRequestOperation] = []
     
     // MARK: Methods
     /// Creates an instance of TapNetworkManager with the base URL and session configuration.
-    public required init(baseURL: URL, configuration: URLSessionConfiguration = .default) {
+    required init(baseURL: URL, configuration: URLSessionConfiguration = .default) {
         
-        self.baseURL = baseURL
+        NetworkManager.networkSessionConfigurator.baseURL = baseURL
         self.session = URLSession(configuration: configuration)
         // Clear the previous api calls, this should be empty by default but just in case :)
         loggedInApiCalls = []
@@ -48,7 +45,7 @@ public class TapNetworkManager {
     /// - Parameters:
     ///   - operation: Network request operation.
     ///   - completion: Completion closure that is called when request finishes.
-    public func performRequest(_ operation: TapNetworkRequestOperation, completion: InnerRequestCompletionClosure?) {
+    func performRequest(_ operation: TapNetworkRequestOperation, completion: InnerRequestCompletionClosure?) {
         
         var request: URLRequest
         // The object that will hold the request model for logging this api call in the stacktrace
@@ -130,7 +127,7 @@ public class TapNetworkManager {
     /// - Parameters:
     ///   - operation: Network request operation.
     ///   - completion: Completion closure that is called when request finishes.
-    public func performRequest<T:Decodable>(_ operation: TapNetworkRequestOperation, completion: RequestCompletionClosure?,codableType:T.Type) {
+    func performRequest<T:Decodable>(_ operation: TapNetworkRequestOperation, completion: RequestCompletionClosure?,codableType:T.Type) {
         
         // The object that will hold the response model for logging this api call in the stacktrace
         var tapLoggingResponseModel:TapLogStrackTraceResponseModel?
@@ -183,13 +180,13 @@ public class TapNetworkManager {
     /// Cancels network request operation.
     ///
     /// - Parameter operation: Operation to cancel.
-    public func cancelRequest(_ operation: TapNetworkRequestOperation) {
+    func cancelRequest(_ operation: TapNetworkRequestOperation) {
         
         operation.task?.cancel()
     }
     
     /// Cancels all request operations.
-    public func cancelAllOperations() {
+    func cancelAllOperations() {
         
         self.currentRequestOperations.forEach { self.cancelRequest($0) }
     }
@@ -261,9 +258,9 @@ public class TapNetworkManager {
             relativePath = operation.path
         }
         
-        guard let resultingURL = URL(string: relativePath, relativeTo: self.baseURL)?.absoluteURL else {
+        guard let resultingURL = URL(string: relativePath, relativeTo: NetworkManager.networkSessionConfigurator.baseURL)?.absoluteURL else {
             
-            throw TapNetworkError.wrongURL(self.baseURL.absoluteString + relativePath)
+            throw TapNetworkError.wrongURL(NetworkManager.networkSessionConfigurator.baseURL.absoluteString + relativePath)
         }
         
         return resultingURL

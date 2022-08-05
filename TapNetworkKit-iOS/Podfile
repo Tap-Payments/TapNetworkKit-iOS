@@ -7,6 +7,10 @@ target 'TapNetworkKit-iOS' do
 
   # Pods for TapNetworkKit-iOS
 pod 'TapAdditionsKitV2'
+pod 'CommonDataModelsKit-iOS'
+pod 'TapCardVlidatorKit-iOS'
+pod 'SwiftyRSA'
+pod 'TapApplicationV2'
 end
 
 target 'TapNetworkKit-Example' do
