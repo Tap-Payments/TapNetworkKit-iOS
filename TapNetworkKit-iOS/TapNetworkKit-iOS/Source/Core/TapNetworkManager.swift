@@ -6,13 +6,19 @@
 //
 import Foundation
 
+/// A delegate to listen to events fired from tap network manager
+public protocol TapNetworkManagerDelegate {
+    /// Inform the delegate that network manager wants to log a peice of info
+    func log(string:String)
+}
+
 /// Network Manager class.
 public class TapNetworkManager {
     
-    // MARK: - -
+    // MARK: - Public -
     
     /// The logged in requests/responses since the init of the network manager till the moment
-    var loggedInApiCalls:[TapLogStackTraceEntryModel] = []
+    public var loggedInApiCalls:[TapLogStackTraceEntryModel] = []
     
     /// Request completion closure.
     public typealias RequestCompletionClosure = (URLSessionDataTask?, Any?, Error?) -> Void
@@ -22,19 +28,26 @@ public class TapNetworkManager {
     
     // MARK: Properties
     /// Defines if request logging enabled.
-    var isRequestLoggingEnabled = false
+    public var isRequestLoggingEnabled = false
     
     /// Defines if you want to enable printing to the console the api calls as it go
-    var consolePrintLoggingEnabled = false
+    public var consolePrintLoggingEnabled = false
+    
+    /// A delegate to listen to events fired from tap network manager
+    public var delegate:TapNetworkManagerDelegate? = nil
+    
+    
+    /// Base URL.
+    public private(set) var baseURL: URL
     
     /// Current active request operations
-    private(set) var currentRequestOperations: [TapNetworkRequestOperation] = []
+    public private(set) var currentRequestOperations: [TapNetworkRequestOperation] = []
     
     // MARK: Methods
     /// Creates an instance of TapNetworkManager with the base URL and session configuration.
-    required init(baseURL: URL, configuration: URLSessionConfiguration = .default) {
+    public required init(baseURL: URL, configuration: URLSessionConfiguration = .default) {
         
-        NetworkManager.networkSessionConfigurator.baseURL = baseURL
+        self.baseURL = baseURL
         self.session = URLSession(configuration: configuration)
         // Clear the previous api calls, this should be empty by default but just in case :)
         loggedInApiCalls = []
@@ -45,7 +58,7 @@ public class TapNetworkManager {
     /// - Parameters:
     ///   - operation: Network request operation.
     ///   - completion: Completion closure that is called when request finishes.
-    func performRequest(_ operation: TapNetworkRequestOperation, completion: InnerRequestCompletionClosure?) {
+    public func performRequest(_ operation: TapNetworkRequestOperation, completion: InnerRequestCompletionClosure?) {
         
         var request: URLRequest
         // The object that will hold the request model for logging this api call in the stacktrace
@@ -105,6 +118,7 @@ public class TapNetworkManager {
                 }else{
                     loggString = "\(loggString)\nBody :\n-----\n{\n}\n---------------\n"
                 }
+                delegate?.log(string: loggString)
                 print(loggString)
             }
             
@@ -127,7 +141,7 @@ public class TapNetworkManager {
     /// - Parameters:
     ///   - operation: Network request operation.
     ///   - completion: Completion closure that is called when request finishes.
-    func performRequest<T:Decodable>(_ operation: TapNetworkRequestOperation, completion: RequestCompletionClosure?,codableType:T.Type) {
+    public func performRequest<T:Decodable>(_ operation: TapNetworkRequestOperation, completion: RequestCompletionClosure?,codableType:T.Type) {
         
         // The object that will hold the response model for logging this api call in the stacktrace
         var tapLoggingResponseModel:TapLogStrackTraceResponseModel?
@@ -139,10 +153,12 @@ public class TapNetworkManager {
             let loggString:String = "Response :\n========\n\(operation.httpMethod.rawValue) \(operation.path)\nHeaders :\n------\n\(headersString)\nBody :\n-----\n\(bodySting)\n---------------\n"
             
             if self.consolePrintLoggingEnabled {
+                self.delegate?.log(string: loggString)
                 print(loggString)
             }
             
             if let nonNullError = error {
+                self.delegate?.log(string: nonNullError.debugDescription)
                 // Failure case for network/api/internal
                 tapLoggingResponseModel = .init(headers: headersString, error_code: "Network/Internal", error_message: nonNullError.localizedDescription, error_description: nonNullError.debugDescription, body: bodySting)
                 
@@ -180,13 +196,13 @@ public class TapNetworkManager {
     /// Cancels network request operation.
     ///
     /// - Parameter operation: Operation to cancel.
-    func cancelRequest(_ operation: TapNetworkRequestOperation) {
+    public func cancelRequest(_ operation: TapNetworkRequestOperation) {
         
         operation.task?.cancel()
     }
     
     /// Cancels all request operations.
-    func cancelAllOperations() {
+    public func cancelAllOperations() {
         
         self.currentRequestOperations.forEach { self.cancelRequest($0) }
     }
@@ -258,9 +274,9 @@ public class TapNetworkManager {
             relativePath = operation.path
         }
         
-        guard let resultingURL = URL(string: relativePath, relativeTo: NetworkManager.networkSessionConfigurator.baseURL)?.absoluteURL else {
+        guard let resultingURL = URL(string: relativePath, relativeTo: self.baseURL)?.absoluteURL else {
             
-            throw TapNetworkError.wrongURL(NetworkManager.networkSessionConfigurator.baseURL.absoluteString + relativePath)
+            throw TapNetworkError.wrongURL(self.baseURL.absoluteString + relativePath)
         }
         
         return resultingURL
@@ -269,7 +285,7 @@ public class TapNetworkManager {
     private func requestContentTypeHeaderValue(for dataType: TapSerializationType) -> String {
         
         switch dataType {
-        
+            
         case .json:
             
             return Constants.jsonContentTypeHeaderValue
