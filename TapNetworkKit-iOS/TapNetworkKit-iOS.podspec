@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "TapNetworkKit-iOS"
-  spec.version      = "1.0.9"
+  spec.version      = "1.0.10"
   spec.summary      = "Tap Network KIT is an on the shelf kit for dynamic solution for network and api management an iOS app."
 
   # This description is used to generate tags and improve search results.
@@ -135,5 +135,10 @@ Pod::Spec.new do |spec|
   # spec.dependency "JSONKit", "~> 1.4"
   
   spec.dependency "TapAdditionsKitV2"
+  spec.dependency "CommonDataModelsKit-iOS"
+  spec.dependency "TapCardVlidatorKit-iOS"
+  spec.dependency "SwiftyRSA"
+  spec.dependency "TapApplicationV2"
+
 
 end
