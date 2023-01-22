@@ -4,7 +4,7 @@
 //
 //  Copyright © 2019 Tap Payments. All rights reserved.
 //
-internal class ErrorUtils {
+ public class ErrorUtils {
     
     // MARK: - Internal -
     // MARK: Methods
@@ -18,7 +18,7 @@ internal class ErrorUtils {
         ]
         
         let underlyingError = NSError(domain: ErrorConstants.internalErrorDomain, code: InternalError.invalidEnumValue.rawValue, userInfo: userInfo)
-        return TapSDKKnownError(type: .internal, error: underlyingError, response: nil, body: nil)
+		return TapSDKKnownError(type: .internal, error: underlyingError, response: nil, body: nil)
     }
     
     // MARK: - Private -
@@ -28,11 +28,11 @@ internal class ErrorUtils {
 }
 
 
-internal struct ErrorConstants {
+public struct ErrorConstants {
     
     internal static let internalErrorDomain = "company.tap.gosellsdk"
     
-    internal struct UserInfoKeys {
+    public struct UserInfoKeys {
         
         internal static let addressType             = "address_type"
         internal static let tokenType               = "token_type"

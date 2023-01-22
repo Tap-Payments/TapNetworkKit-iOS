@@ -6,7 +6,7 @@
 //
 
 /// Structure holding currency and the amount.
-@objc public class AmountedCurrency: NSObject,Decodable {
+@objc public class AmountedCurrency: NSObject,Codable {
     
     // MARK: - Internal -
     // MARK: Properties
@@ -31,21 +31,23 @@
     
     /// Computes the displayble symbol. If backend provides a Symbol we use it, otherwise we use the provided currency code
     public var displaybaleSymbol:String {
-        return currencySymbol.count == 1 ? currencySymbol : currency.appleRawValue
+        return currencySymbol
+        //return currencySymbol.count == 1 ? currencySymbol : currency.appleRawValue
     }
     // MARK: Methods
     
-    @objc public convenience init(_ currency: TapCurrencyCode, _ amount: Double, _ flag: String, _ decimalDigits: Int = 2) {
-        self.init(currency, amount, currency.symbolRawValue, flag, decimalDigits)
+    @objc public convenience init(_ currency: TapCurrencyCode, _ amount: Double, _ flag: String, _ decimalDigits: Int = 2, _ rate: Double = 1) {
+        self.init(currency, amount, currency.symbolRawValue, flag, decimalDigits, rate)
     }
     
-    @objc public init(_ currency: TapCurrencyCode, _ amount: Double, _ currencySymbol: String, _ flag: String, _ decimalDigits: Int = 2) {
+    @objc public init(_ currency: TapCurrencyCode, _ amount: Double, _ currencySymbol: String, _ flag: String, _ decimalDigits: Int = 2, _ rate: Double = 1) {
         
         self.currency       = currency
         self.amount         = amount
         self.currencySymbol = currencySymbol
         self.flag           = flag
         self.decimalDigits  = decimalDigits
+        self.rate           = rate
     }
     
     // MARK: - Private -
