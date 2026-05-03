@@ -13,8 +13,8 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/Tap-Payments/TapAdditionsKitV2.git", from: "0.0.18"),
-        .package(url: "https://github.com/Tap-Payments/TapApplicationV2.git", from: "0.0.4"),
+        .package(url: "https://github.com/Tap-Payments/TapAdditionsKitV2.git", from: "0.0.21"),
+        .package(url: "https://github.com/Tap-Payments/TapApplicationV2.git", from: "0.0.6"),
         .package(url: "https://github.com/Tap-Payments/CommonDataModelsKit-iOS.git", from: "1.0.149"),
         .package(url: "https://github.com/Tap-Payments/TapCardVlidatorKit-iOS.git", from: "1.0.24"),
         .package(url: "https://github.com/TakeScoop/SwiftyRSA.git", from: "1.7.0")
