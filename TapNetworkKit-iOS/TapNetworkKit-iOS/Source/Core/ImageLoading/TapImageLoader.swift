@@ -6,7 +6,8 @@
 //
 
 import CoreGraphics
-import class    TapAdditionsKitV2.URLSession
+import Foundation
+import TapAdditionsKitV2
 import class    UIKit.UIImage.UIImage
 /*
 /// Image loader.
